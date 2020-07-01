@@ -31,7 +31,7 @@ public class User {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @JoinColumn(name = "idRole")
+    @JoinColumn(name = "poll_id", nullable = false)
     private Role idRole;
 
     public User() {

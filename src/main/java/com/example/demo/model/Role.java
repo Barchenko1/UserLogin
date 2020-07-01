@@ -1,11 +1,14 @@
 package com.example.demo.model;
 
 import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Role")
+@Table(name = "Role", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "role_name"
+        })
+    })
 public class Role {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -13,6 +16,7 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     @NaturalId
+    @Column(unique = true)
     private RoleName role_name;
 
     public Role() {
