@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Role;
+import com.example.demo.model.RoleName;
 import com.example.demo.reposetory.RoleDao;
 import com.example.demo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Optional<Role> findRoleById(Long id) {
         return roleDao.findById(id);
+    }
+
+    @Override
+    public Optional<Role> findRoleByName(RoleName roleName) {
+        return roleDao.findByRoleName(roleName.getValue());
     }
 }

@@ -1,7 +1,10 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.builders.BaseBuilder;
+import com.example.demo.dto.UserRoleDto;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
+import com.example.demo.reposetory.RoleDao;
 import com.example.demo.reposetory.UserDao;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +19,27 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
+    private BaseBuilder<User, UserRoleDto, Role> userBuilder;
+
     @Override
-    public void createUser(User user) {
+    public void createUser(UserRoleDto userRoleDto) {
+        Optional<Role> role = roleDao.findByRoleName(userRoleDto.getRoleName().name());
+        User user = userBuilder.build(userRoleDto, role.get());
         userDao.save(user);
     }
 
     @Override
-    public void updateRole(User user) {
+    public void updateUser(User user) {
         Optional<User> newUser = userDao.findById(user.getIdUser());
         userDao.saveAndFlush(newUser.get());
     }
 
     @Override
-    public void deleteRole(User user) {
+    public void deleteUser(User user) {
         userDao.delete(user);
     }
 

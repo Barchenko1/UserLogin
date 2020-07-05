@@ -1,5 +1,6 @@
 package com.example.demo.rest;
 
+import com.example.demo.dto.UserRoleDto;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,22 @@ public class UserRest {
     private UserService userService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createRole(@RequestBody User user) {
-        userService.createUser(user);
+    public void createUser(@RequestBody UserRoleDto userRoleDto) {
+        userService.createUser(userRoleDto);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public void updateUser(@RequestBody User user) {
+        userService.updateUser(user);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public void deleteUser(@RequestBody User user) {
+        userService.deleteUser(user);
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public List<User> createRole() {
+    public List<User> findAllUser() {
         return userService.findAllUser();
     }
 

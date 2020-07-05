@@ -1,16 +1,11 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import com.example.demo.model.RoleName;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "User")
-public class User {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class UserRoleDto {
+
     private Long idUser;
 
     private String login;
@@ -29,12 +24,9 @@ public class User {
 
     private Date birthday;
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @JoinColumn(name = "idRole", nullable = false)
-    private Role idRole;
+    private RoleName roleName;
 
-    public User() {
+    public UserRoleDto() {
     }
 
     public Long getIdUser() {
@@ -109,11 +101,11 @@ public class User {
         this.birthday = birthday;
     }
 
-    public Role getIdRole() {
-        return idRole;
+    public RoleName getRoleName() {
+        return roleName;
     }
 
-    public void setIdRole(Role idRole) {
-        this.idRole = idRole;
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 }
