@@ -8,11 +8,11 @@ import java.util.Optional;
 public interface UserService {
     void createUser(UserRoleDto userRoleDto);
 
-    void updateUser(User user);
+    void updateUser(UserRoleDto userRoleDto);
 
-    void deleteUser(User user);
+    void deleteUser(UserRoleDto userRoleDto);
 
-    List<User> findAllUser();
+    List<UserRoleDto> findAllUser();
 
     Optional<User> findUserById(Long id);
 

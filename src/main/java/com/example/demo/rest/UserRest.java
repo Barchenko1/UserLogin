@@ -24,17 +24,17 @@ public class UserRest {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody User user) {
-        userService.updateUser(user);
+    public void updateUser(@RequestBody UserRoleDto userRoleDto) {
+        userService.updateUser(userRoleDto);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void deleteUser(@RequestBody User user) {
-        userService.deleteUser(user);
+    public void deleteUser(@RequestBody UserRoleDto userRoleDto) {
+        userService.deleteUser(userRoleDto);
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public List<User> findAllUser() {
+    public List<UserRoleDto> findAllUser() {
         return userService.findAllUser();
     }
 

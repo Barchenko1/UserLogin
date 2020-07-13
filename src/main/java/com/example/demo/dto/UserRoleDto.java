@@ -1,12 +1,11 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.RoleName;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 public class UserRoleDto {
-
-    private Long idUser;
 
     private String login;
 
@@ -22,19 +21,24 @@ public class UserRoleDto {
 
     private String phone;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
-    private RoleName roleName;
+    private RoleName role_name;
 
     public UserRoleDto() {
     }
 
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public UserRoleDto(String login, String password, String f_name, String l_name, int age, String email, String phone, Date birthday, RoleName role_name) {
+        this.login = login;
+        this.password = password;
+        this.f_name = f_name;
+        this.l_name = l_name;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.role_name = role_name;
     }
 
     public String getLogin() {
@@ -101,11 +105,11 @@ public class UserRoleDto {
         this.birthday = birthday;
     }
 
-    public RoleName getRoleName() {
-        return roleName;
+    public RoleName getRole_name() {
+        return role_name;
     }
 
-    public void setRoleName(RoleName roleName) {
-        this.roleName = roleName;
+    public void setRole_name(RoleName role_name) {
+        this.role_name = role_name;
     }
 }
