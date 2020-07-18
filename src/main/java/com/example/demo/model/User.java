@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -27,6 +28,7 @@ public class User {
 
     private String phone;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     @ManyToOne

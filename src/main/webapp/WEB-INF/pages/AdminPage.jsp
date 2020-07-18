@@ -11,7 +11,7 @@
 <body>
 <h5 class="logo-text-color text-center p-3">Admin page</h5>
 <div class="addLink">
-    <a href="/user/create">Add new user</a>
+    <a href="/create">Add new user</a>
 </div>
 <table class="tableBorder">
     <tr>
@@ -37,8 +37,8 @@
             <td>${dto.birthday}</td>
             <td>${dto.role_name}</td>
             <td>
-<%--                <a href="/user/update/${dto.book_id}/${dto.customer_id}">update</a>--%>
-<%--                <a href="/user/delete/${dto.book_id}/${dto.customer_id}">delete</a>--%>
+                <a href="/update/${dto.login}">update</a>
+                <a href="/delete/${dto.login}">delete</a>
             </td>
         </tr>
     </c:forEach>

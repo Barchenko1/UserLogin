@@ -10,23 +10,10 @@
 </head>
 <body>
 <h5 class="logo-text-color text-center p-3">User page</h5>
-<table class="tableBorder">
-    <tr>
-        <th>first name</th>
-        <th>last name</th>
-        <th>age</th>
-    </tr>
-    <c:forEach var="dto" items="${userRoleDto}" varStatus="i">
-        <tr>
-            <td>${dto.f_name}</td>
-            <td>${dto.l_name}</td>
-            <td>${dto.age}</td>
-            <td>
-                    <%--                <a href="/user/update/${dto.book_id}/${dto.customer_id}">update</a>--%>
-                    <%--                <a href="/user/delete/${dto.book_id}/${dto.customer_id}">delete</a>--%>
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+<div>
+    <h2>Hello User</h2>
+    <p>your name: ${user.f_name}</p>
+    <p>your surname: ${user.l_name}</p>
+</div>
 </body>
 </html>

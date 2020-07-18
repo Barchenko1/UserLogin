@@ -47,8 +47,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(UserRoleDto userRoleDto) {
-        Optional<User> user = userDao.findUserByLogin(userRoleDto.getLogin());
+    public void deleteUserByLogin(String login) {
+        Optional<User> user = userDao.findUserByLogin(login);
         userDao.delete(user.get());
     }
 
@@ -61,5 +61,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findUserById(Long id) {
         return userDao.findById(id);
+    }
+
+    @Override
+    public Optional<User> findUserByLogin(String login) {
+        return userDao.findUserByLogin(login);
+    }
+
+    @Override
+    public Optional<UserRoleDto> findUserRoleDtoByLogin(String login) {
+        return userDao.findUserRoleDtoByLogin(login);
     }
 }
