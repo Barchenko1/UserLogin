@@ -15,29 +15,30 @@
 </div>
 <table class="tableBorder">
     <tr>
-        <th>title</th>
-        <th>price</th>
-        <th>circulation</th>
-        <th>advance</th>
-        <th>public_date</th>
-        <th>customer name</th>
-        <th>customer surname</th>
-        <th>customer email</th>
-        <th>actions</th>
+        <th>login</th>
+        <th>password</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>birthday date</th>
+        <th>role</th>
     </tr>
     <c:forEach var="dto" items="${userRoleDto}" varStatus="i">
         <tr>
-            <td>${dto.title}</td>
-            <td>${dto.price}</td>
-            <td>${dto.circulation}</td>
-            <td>${dto.advance}</td>
-            <td>${dto.public_date}</td>
+            <td>${dto.login}</td>
+            <td>${dto.password}</td>
             <td>${dto.f_name}</td>
             <td>${dto.l_name}</td>
+            <td>${dto.age}</td>
             <td>${dto.email}</td>
+            <td>${dto.phone}</td>
+            <td>${dto.birthday}</td>
+            <td>${dto.role_name}</td>
             <td>
-                <a href="/user/update/${dto.book_id}/${dto.customer_id}">update</a>
-                <a href="/user/delete/${dto.book_id}/${dto.customer_id}">delete</a>
+<%--                <a href="/user/update/${dto.book_id}/${dto.customer_id}">update</a>--%>
+<%--                <a href="/user/delete/${dto.book_id}/${dto.customer_id}">delete</a>--%>
             </td>
         </tr>
     </c:forEach>
