@@ -103,7 +103,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    protected String registrartonPost(
+    protected String registrationPost(
             @Valid UserRoleDto user, BindingResult bindingResult, Model model,
             @RequestParam("passwordAgain") String passwordAgain,
             @RequestParam("g-recaptcha-response") String reqCaptcha) {
@@ -113,7 +113,6 @@ public class UserController {
                     "login", "Captcha is not success");
             bindingResult.addError(loginAlreadyUse);
         }
-
 
         if (!checkUser(user)) {
             FieldError loginAlreadyUse = new FieldError(
@@ -146,13 +145,13 @@ public class UserController {
         return "Login";
     }
 
-    private boolean chkCaptcha(String responce) {
+    private boolean chkCaptcha(String response) {
 
         final String url = "https://www.google.com/recaptcha/api/siteverify";
         final String secret = "6LdQXn8UAAAAAO9omoDSEllqSAc1Wv3J4cS26sXk";
         final String userAgent = "Mozilla/5.0";
 
-        if (responce == null || "".equals(responce)) {
+        if (response == null || "".equals(response)) {
             return false;
         }
 
@@ -163,7 +162,7 @@ public class UserController {
             conn.setRequestProperty("User-Agent", userAgent);
             conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
             String postParams = "secret=" + secret + "&response="
-                    + responce;
+                    + response;
             conn.setDoOutput(true);
 
             OutputStream outStream = conn.getOutputStream();
@@ -184,8 +183,7 @@ public class UserController {
 
             System.out.println("Response: " + jsonObject);
 
-            boolean success = jsonObject.getBoolean("success");
-            return success;
+            return jsonObject.getBoolean("success");
 
         } catch (Exception e) {
             e.printStackTrace();

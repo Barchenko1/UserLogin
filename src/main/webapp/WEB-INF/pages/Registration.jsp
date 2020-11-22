@@ -70,7 +70,9 @@
 
     <tr>
     <td align="right">Captcha</td>
-    <td><div class="g-recaptcha" data-sitekey="6LdQXn8UAAAAAAZXH-kntqORD1z62x-6m0kCW0NF"></div></td>
+    <td>
+        <div class="g-recaptcha" data-sitekey="6LdQXn8UAAAAAAZXH-kntqORD1z62x-6m0kCW0NF"></div>
+    </td>
     </tr>
 
     <tr>
