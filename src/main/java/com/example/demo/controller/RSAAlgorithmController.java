@@ -16,7 +16,7 @@ import java.util.List;
 import static com.example.demo.constants.Constant.*;
 
 @Controller
-public class AlgorithmsController {
+public class RSAAlgorithmController {
 
     private MyRsa rsa = new MyRsa();
     private KeyData keyData;
