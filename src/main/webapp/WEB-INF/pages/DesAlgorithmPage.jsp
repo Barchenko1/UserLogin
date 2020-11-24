@@ -39,7 +39,7 @@
             </tr>
         </table>
     </form:form>
-    <h1 align="right">Client</h1>
+    <h1 align="right">Encrypt</h1>
     <form:form style="display: inline-block; margin-left: 10px" method="post" action="/desEncrypt">
         <table>
             <tr>
